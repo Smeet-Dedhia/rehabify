@@ -1,8 +1,11 @@
-
+import Dastcomponent from "../components/Dastcomponent"
 
 function DAST() {
   return (
-    <div>DAST</div>
+		<>
+		<Dastcomponent questiontext="Have you used drugs other than those required for medical reasons"/>
+		</>
+    
   )
 }
 
