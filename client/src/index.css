@@ -6,6 +6,7 @@
 
 body{
 	overflow-y: scroll;
+	background-color: #F2F3F2;
 }
 
 .whatisrehabify{
@@ -20,6 +21,32 @@ body{
 	width: 24rem;
 }
 
-.inputFieldHalf{
+.provideCards{
+	height: 10rem;
+	width: 9rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.dastQuestionContainer{
+	height: 20rem;
+	width: 40rem;
+}
+
+
+
+/* login  */
+.formContainerLogin{
+    height:30rem;
+    width: 24rem;
+}
+
+.register{
+	width: 19rem;
+}
+
+.formContainer{
+    height: 32rem;
+    width: 24rem;
 }

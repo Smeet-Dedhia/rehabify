@@ -1,11 +1,11 @@
-import React from 'react'
+import { Link } from "react-router-dom";
 
-const Whatprovidesub = ({text}) => {
+const Whatprovidesub = ({text,logo,path}) => {
 	return (
-		<div className="rounded shadow-xl flex flex-col">
-			<h1>logo</h1>
-			<h1>{text}</h1>
-		</div>
+			<Link to={path} className='flex flex-col justify-center items-center rounded-lg bg-white provideCards hover:drop-shadow-lg text-center hover:cursor-pointer hover:scale-110 transition-transform duration-200 ease-out'>
+			<p className='text-3xl'>{logo}</p>
+			<p className=' pt-2'>{text}</p>
+			</Link>
 	)
 }
 
