@@ -1,7 +1,10 @@
+import Navbar from "../components/Navbar"
 
 function Landing() {
   return (
-    <div>Landing</div>
+    <div>
+      {/* <Navbar/> */}
+    </div>
   )
 }
 

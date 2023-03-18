@@ -6,11 +6,13 @@ import BioData from './pages/BioData';
 import DAST from './pages/DAST';
 import Dashboard from './pages/Dashboard';
 import Forum from './pages/Forum';
+import Navbar from './components/Navbar';
 
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path='/' element={<Landing/>} />
         <Route path='/login' element={<Login/>} />
