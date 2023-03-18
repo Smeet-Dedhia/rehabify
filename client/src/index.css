@@ -50,3 +50,9 @@ body{
     height: 32rem;
     width: 24rem;
 }
+
+/* forum  */
+.forumContainer{
+	height: 10rem;
+	width: 45rem;
+}

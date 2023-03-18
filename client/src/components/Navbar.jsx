@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
 import {RiDashboardLine,RiChat1Line} from 'react-icons/ri';
+import Avatar from 'react-avatar';
+import { useState,useEffect } from "react";
 
 
 function Navbar() {
+const [user,setUser]=useState(undefined);
+
+useEffect( ()=>{
+    (async () => {
+      if(!localStorage.getItem("user")){
+        navigate('/login');
+        }else{
+          setUser(await JSON.parse(localStorage.getItem('user')));
+        }
+    })();
+  },[]);
+  
+// console.log(user.username);
+
   return (
     <div className='flex justify-around h-20 items-center'>
 
@@ -26,9 +42,12 @@ function Navbar() {
         </div>
 
         {/* profile or login  */}
+        {/* {localStorage.getItem('user')?  */}
+          {/* <Avatar name={user.username} rounded={true} size="50" className="rounded-3xl" />: */}
         <Link to='/login' className='bg-[#F39D62] px-4 py-1 text-white rounded font-semibold hover:scale-110 transition-transform duration-200 ease-out'>
             Login
         </Link>
+        {/* } */}
 
     </div>
   )
