@@ -1,20 +1,13 @@
 import React from 'react'
 
-const Dastcomponent = ({questiontext}) => {
+const Dastcomponent = ({question,id}) => {
 	return (
-		<div class="bg-[#F8F3EC]">
-			<h1 class="text-center mx-4 space-y-2 text-[#F39D62]">DAST TEST</h1>
-
-			<div class="bg-[#F39D62] text-white w-80" >
-				<h3>{questiontext}</h3>
-				<div class="flex flex-row">
-					<button class="bg-white text-black">Yes</button>
-					<button class="bg-white text-black">No</button>
-				</div>
-				
-			</div>
-
-			<button>Next</button>
+		<div className='flex flex-col justify-center  items-center bg-[#F39D62] m-4 rounded-lg font-semibold text-2xl text-center text-white dastQuestionContainer '>
+			<p>Q{id}. {question}</p>
+			<p className='options flex justify-around w-60 mt-10'>
+				<button className='bg-white py-1 px-6 rounded text-[#F39D62]'>Yes</button>
+				<button className='bg-white py-1 px-6 rounded text-[#F39D62]'>No</button>
+			</p>
 		</div>
 	)
 }
