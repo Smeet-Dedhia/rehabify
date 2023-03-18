@@ -3,7 +3,7 @@ import '../index.css'
 
 function BioData() {
   return (
-    <div className='flex flex-col py-10 items-center bg-[#F39D62] text-white h-screen'>
+    <div className='flex flex-col py-10 items-center bg-[#F39D62] text-white h-full'>
       <p className='text-4xl font-semibold text-white'>Welcome Prajna!</p>
 
       {/* questions  */}

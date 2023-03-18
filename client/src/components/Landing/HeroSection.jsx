@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function HeroSection() {
   return (
-    <div className='flex justify-evenly items-center mt-10 py-10'>
+    <div className='flex justify-evenly items-center mt-12 py-12'>
         
         <div className='h-60 justify-around'>
             {/* quote  */}
@@ -13,7 +13,7 @@ function HeroSection() {
             <p className='max-w-sm mb-8'>Join our student-led groups dedicated to beat addiction, one day at a time</p>
 
             {/* get-started button */}
-            <Link to='/biodata' className=' bg-[#F39D62] text-white py-2 px-5 font-semibold rounded-lg'>
+            <Link to='/biodata' className=' bg-[#F39D62] text-white py-3 px-6 font-semibold rounded-lg'>
                 Get Started
             </Link>
         </div>

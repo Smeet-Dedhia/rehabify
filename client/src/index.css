@@ -6,6 +6,7 @@
 
 body{
 	overflow-y: scroll;
+	background-color: #F2F3F2;
 }
 
 .whatisrehabify{
@@ -20,6 +21,14 @@ body{
 	width: 24rem;
 }
 
-.inputFieldHalf{
+.provideCards{
+	height: 10rem;
+	width: 9rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
+.whatProvide{
+	
 }

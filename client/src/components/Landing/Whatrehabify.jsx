@@ -3,10 +3,13 @@ import React from 'react'
 
 const Whatrehabify = () => {
 	return (
-		<div className="flex flex-col justify-center items-center">
-			<div className="w-10/12 bg-[#F39D62] rounded whatisrehabify">
+		<div className="flex flex-col justify-center items-center mt-24 pt-24">
+			<div className="w-10/12 bg-[#F39D62]  p-20 rounded whatisrehabify">
 				<h1 className="text-white text-3xl font-bold">What is Rehabify?</h1>
-				<div className="text-white w-2/3">
+				
+
+				<div className='flex justify-between'>
+				<div className="text-white font-regular mt-4 py-4 w-2/3">
 					<h3>We are an organization dedicated to help students overcome substance abuse. We create specialized communities to help you beat addiction.</h3>
 					&nbsp;&nbsp;
 
@@ -17,7 +20,13 @@ const Whatrehabify = () => {
 				</div>
 
 
+			<div className='h-60 w-60 bg-white'>
 
+			</div>
+
+
+
+				</div>
 			</div>
 
 
