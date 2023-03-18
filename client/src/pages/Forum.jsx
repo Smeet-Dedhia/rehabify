@@ -1,8 +1,12 @@
+import Navbar from "../components/Navbar"
 
 
 function Forum() {
   return (
-    <div>Forum</div>
+    <div>
+    <Navbar/>
+    Forum  
+    </div>
   )
 }
 

@@ -1,7 +1,11 @@
+import Navbar from "../components/Navbar"
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <Navbar/>
+      Dashboard
+    </div>
   )
 }
 
