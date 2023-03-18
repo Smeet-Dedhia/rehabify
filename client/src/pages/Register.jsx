@@ -1,19 +1,64 @@
 import { useState,useEffect } from 'react';
 import  { Link, useNavigate } from 'react-router-dom';
+import { registerRoute } from '../utils/apiRoutes';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Register() {
 const navigate=useNavigate();
 
+const [user,setUser]=useState();
+const [values,setValues]=useState({
+  username:"",
+  email:"",
+  password:"",
+  confirmPassword:""
+  })
+
+
+  // useEffect(() => {
+  //   const user=localStorage.getItem('userInfo');
+
+  //   if(user){
+  //     navigate('/');
+  //   }
+  // }, [])
+
 
 const handleChange=(e)=>{
-//event handling 
+  setValues({...values, [e.target.name]:e.target.value});
+  // console.log(values);
 }
 
+// console.log(values);
 
-
+const toastCustomised={
+  duration:2000,
+  position:'top-center'
+}
 
 const handleSubmit= async (e)=>{
- 
+  e.preventDefault();
+const { username,email,password}= values;
+
+const { data }=await axios.post(registerRoute,{
+  username,email,password
+})
+
+if(data.status===false){
+  // console.log(data.message);
+  toast.error(data.message,toastCustomised);
+}
+
+if(data.status===true){
+  toast.success(`${username} registered successfully `)
+  localStorage.setItem('userInfo',JSON.stringify(data));
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+  console.log(data);
+}
+//  console.log(username);
 }
 
 
@@ -63,11 +108,12 @@ const handleValidation=(e)=>{
         <Link to='/login' className='font-semibold text-[#F39D62]'>&nbsp; Login </Link>
       </p>
 
-      {/* <Avatar name={values.username} rounded={true} size="50" className="rounded-3xl" /> */}
+     
 
 
      </div>
 
+    <Toaster/>
     </div>
   )
 }

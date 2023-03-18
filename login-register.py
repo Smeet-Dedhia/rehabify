@@ -1,5 +1,6 @@
 import pymongo
 from pymongo import MongoClient
+import json 
 from fastapi import FastAPI
 import nltk
 from nltk.tokenize import word_tokenize
@@ -159,37 +160,32 @@ def getStats(userid):
 
 @app.get('/')
 def fun():
-    usr1 = getUser("1")
-    usr2 = getUser("2")
-    print(usr1["background"])
-    print(usr2["addiction"])
     return "Hello World"
 
 @app.get("/user/")
 async def read_user(userid:str, password:str,name:str=None,age:int=None,height:int=None,weight:int=None,bloodGrp:str=None,college:str=None,city:str=None):
     addUser(userid=userid,password=password,name=name,age=age,height=height,weight=weight,bloodGrp=bloodGrp,college=college,city=city)
-    return "User Added"
+    return {'result':"User Added"}
 
 @app.get("/DAST/")
 async def read_DAST(userid:str,Q1:bool=None,Q2:bool=None,Q3:bool=None,Q4:bool=None,Q5:bool=None,Q6:bool=None,Q7:bool=None,Q8:bool=None,Q9:bool=None,Q10:bool=None):
-    return addDAST(userid=userid,Q1=Q1,Q2=Q2,Q3=Q3,Q4=Q4,Q5=Q5,Q6=Q6,Q7=Q7,Q8=Q8,Q9=Q9,Q10=Q10)
+    return {'result':addDAST(userid=userid,Q1=Q1,Q2=Q2,Q3=Q3,Q4=Q4,Q5=Q5,Q6=Q6,Q7=Q7,Q8=Q8,Q9=Q9,Q10=Q10)}
 
 @app.get("/addiction/")
 async def add_addiction(userid:str,addiction:str,background:str=None,emergencyName:str=None,emergencyEmail:str=None,emergencyContact:str=None):
     addAddiction(userid=userid,addiction=addiction,background=background,emergencyContact=emergencyContact,emergencyName=emergencyName,emergencyEmail=emergencyEmail)
-    return "Addiction Updated"
+    return {'result':"Addiction Updated"}
 
 @app.get("/track/")
 def Tracking(userid:str,date:str,status:str):
     addTracking(userid=str(userid),date=str(date),status=str(status))
-    return "Tracking Updated"
+    return {'result':"Tracking Updated"}
 
 @app.get("/redact/")
 def anonymize(text:str,nickname:str="[REDACTED]"):
-    return redact(text=text,alias=nickname)
+    return {'result':redact(text=text,alias=nickname)}
 
 
 
 
 #addUser(userid="123",age=35)
-

@@ -1,17 +1,80 @@
 import { useState,useEffect } from 'react';
 import  { Link, useNavigate } from 'react-router-dom';
-
+import { loginRoute } from '../utils/apiRoutes';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 function Login() {
+  const navigate=useNavigate();
 
+  const [values,setValues]=useState({
+  username:"",
+  password:""
+  });
+  
+  // to redirect to chat page if user already logged in and in local storage
+  // useEffect(()=>{
+  // if(localStorage.getItem('user')){
+  //     navigate('/');
+  // }
+  // },[])
+  
+  const handleChange=(e)=>{
+  setValues({...values, [e.target.name]:e.target.value});
+  // console.log(values);
+  }
 
-const handleSubmit=()=>{
+  const toastCustomised={
+    duration:2000,
+    position:'top-center'
+  }
+  
+  
+  // const handleSubmit= async (e)=>{
+  //   e.preventDefault();
+    
+  //     const { username,password}= values;
+  //     const { data } =await axios.post(loginRoute,{
+  //       username,
+  //       password
+  //     });
+  
+  //     if(data.status=== false){
+  //       toast.error(data.message, toastCustomised);
+  //     }
+      
+  //     if(data.status===true){
+  //       toast.success(`welcome back ${username} `)
+  //       localStorage.setItem('user',JSON.stringify(data.user));
+  //       setTimeout(() => {
+  //         navigate('/');
+  //       }, 1000);
+        
+  //     }
+  // }
 
-}
+const handleSubmit= async (e)=>{
+    e.preventDefault();
+  const { username,password}= values;
+  
+  const { data }=await axios.post(loginRoute,{
+    username,password
+  })
 
-const handleChange=()=>{
+      if(data.status=== false){
+        toast.error(data.message,toastCustomised);
+      }
 
-}
+  
+  if(data.status===true){
+    localStorage.setItem('userInfo',JSON.stringify(data));
+    navigate('/');
+      
+    // console.log(data);
+  }
+  //  console.log(username);
+  }
+
   return (
     <div className='h-screen flex justify-center items-center bg-[#F39D62] text-white'>
      
@@ -37,7 +100,7 @@ const handleChange=()=>{
      <input type="text" placeholder='Enter Pasword' name='password' onChange={(e)=> handleChange(e)} className='pr-28 pl-6 py-2 rounded-md text-md font-light bg-[#E7E7E7] outline-none' />
      </div>
 
-     <button onClick={handleSubmit} className='register bg-[#F39D62] text-white py-1.5 px-4 rounded-md font-semibold mt-2'>Login</button>
+     <button onClick={handleSubmit}  className='register bg-[#F39D62] text-white py-1.5 px-4 rounded-md font-semibold mt-2'>Login</button>
    
      </form>
 
@@ -48,7 +111,7 @@ const handleChange=()=>{
 
     </div>
 
-    {/* <Toaster/> */}
+    <Toaster/>
    </div>
   )
 }

@@ -1,5 +1,6 @@
 const bcrypt=require('bcrypt');
 const User=require('../models/userModel');
+const generateToken=require('../utils/jwtToken');
 
 exports.registerUser= async(req,res,next)=>{
    try {
@@ -25,7 +26,7 @@ exports.registerUser= async(req,res,next)=>{
      })
  
      delete user.password;
-     return res.json({status:true, user});
+     return res.json({status:true, user,token:generateToken(user._id)});
    } catch (error) {
         next(error);
    }
@@ -51,7 +52,7 @@ exports.loginUser= async(req,res,next)=>{
 
       delete user.password;
   
-      return res.json({status:true, user});
+      return res.json({status:true, user,token:generateToken(user._id)});
     } catch (error) {
          next(error);
     }
