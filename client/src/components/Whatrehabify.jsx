@@ -12,7 +12,7 @@ const Whatrehabify = () => {
 
 					<h3>Drug addiction can have serious mental and physical health implications. Reclaim control of your life by joining our student groups.</h3>
 					&nbsp;&nbsp;
-					
+						
 					<h3>We help you stay on track with out gamified progress tracker and enable you to empower others with your journey. Get started today.</h3>
 				</div>
 
