@@ -26,7 +26,7 @@ function Forum() {
     
   }
 
-    console.log(redactedText);
+    console.log(redactedTextx);
   
 
   return (

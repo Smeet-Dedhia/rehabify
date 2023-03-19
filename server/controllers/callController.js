@@ -10,12 +10,18 @@ exports.scheduleCall = async(req,res,next)=>{
         return res.json({message:"no email found", status:false});
     }
 
-    const message = `Your password reset token is (localhost Only) \n\n  \n \n If you have not requested this email then kindly ignore it `;
+    const message = `Welcome to Rehabify!
+
+    Congrats on making the decision to meet with our medical professionals and combat substance abuse, one day at a time.
+    
+    You selected your slot as Monday, 20 Mar, 8:00 AM.
+    
+    Please join the call at the following link:`
 
     try {
         await sendEmail({
             email:user.email,
-            subject:`shopHere Password Recovery`,
+            subject:`Your consultancy has been scheduled`,
             message,
 
         });
