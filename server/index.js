@@ -5,6 +5,7 @@ const cors=require('cors');
 require('dotenv').config();
 
 const userRoute=require('./routes/userRoute');
+const callRoute=require('./routes/callRoute');
 
 const app=express();
 
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json()); 
 
 app.use('/api/auth', userRoute);
+app.use('/api/', callRoute);
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser:true,
