@@ -5,7 +5,7 @@ function HeroSection() {
 	return (
 		<div className='flex justify-around items-center mt-12 py-12'>
 
-			<div className='h-96 w-96 justify-around'>
+			<div className='h-80 justify-around py-10'>
 				{/* quote  */}
 				<p className='mb-4 text-6xl font-semibold max-w-lg'>Support, empower, overcome</p>
 
@@ -20,10 +20,10 @@ function HeroSection() {
 
 
 			{/* Image  */}
-			<div className='h-64'>
+			<div className='h-80'>
 				<iframe
-					width="500"
-					height="250	"
+					width="600"
+					height="400	"
 					src={`https://www.youtube.com/embed/2E6vZt_DC5I`}
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen

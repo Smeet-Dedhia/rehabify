@@ -1,5 +1,6 @@
 import React from 'react'
 // import '../index.css';
+import d from '../../assets/d.jpeg';
 
 const Whatrehabify = () => {
 	return (
@@ -20,8 +21,8 @@ const Whatrehabify = () => {
 				</div>
 
 
-			<div className='h-60 w-60 bg-white'>
-
+			<div className=''>
+			<img src={d} alt="" className='h-60' />
 			</div>
 
 

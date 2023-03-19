@@ -93,11 +93,11 @@ const handleSubmit= async (e)=>{
      {/* form section  */}
      <form onSubmit={(e)=>handleSubmit(e)} className='flex flex-col justify-around items-center h-52'>
      <div>
-     <input type="text" placeholder='Username' name='username' onChange={(e)=> handleChange(e)} className='pr-28 pl-6 py-2 rounded-md text-md font-light bg-[#E7E7E7] outline-none' />
+     <input type="text" placeholder='Username' name='username' onChange={(e)=> handleChange(e)} className='pr-28 pl-6 py-2 rounded-md text-md font-light bg-[#E7E7E7] text-zinc-700 outline-none' />
      </div>
       
      <div>
-     <input type="text" placeholder='Enter Pasword' name='password' onChange={(e)=> handleChange(e)} className='pr-28 pl-6 py-2 rounded-md text-md font-light bg-[#E7E7E7] outline-none' />
+     <input type="text" placeholder='Enter Pasword' name='password' onChange={(e)=> handleChange(e)} className='pr-28 pl-6 py-2 rounded-md text-md font-light bg-[#E7E7E7] text-zinc-700 outline-none' />
      </div>
 
      <button onClick={handleSubmit}  className='register bg-[#F39D62] text-white py-1.5 px-4 rounded-md font-semibold mt-2'>Login</button>

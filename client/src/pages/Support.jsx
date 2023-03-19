@@ -1,10 +1,14 @@
 import Navbar from "../components/Navbar";
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
+import { scheduleCall} from '../utils/apiRoutes';
+import axios from 'axios';
+import { useState } from "react";
 
 
 function VideoCall() {
-    const navigate=useNavigate();
+const navigate=useNavigate();
+const [user,setUser]=useState();
 const supportDetails=[
     {
         id:1,
@@ -60,16 +64,42 @@ const freeAvail=[
     }
 ]
 
-const handleSubmit=()=>{
-    toast.success(`Your call has been scheduled`);
-    setTimeout(() => {
-        navigate('/');
-      }, 1000);
-  console.log(data);
-}
+// const handleSubmit=()=>{
+//     toast.success(`Your call has been scheduled`);
+//     setTimeout(() => {
+//         navigate('/');
+//       }, 1000);
+//   console.log(data);
+// }
+
+const handleSubmit= async (e)=>{
+
+    if(!localStorage.getItem("user")){
+        navigate('/login');
+        }else{
+          setUser(await JSON.parse(localStorage.getItem('user')));
+        }
+
+  
+console.log(user);
+const email=user.email
+ const {data}=await axios.post(scheduleCall,{
+    email
+  })
+
+toast.success("Your booking is successful!")
+  
+
+
+
+
+ }
+
+
   return (
     <div>
         <Navbar/>
+        {/* {user.email} */}
         
     <div className='flex flex-col justify-center items-center mt-5 py-5'>
         <p className='text-3xl font-bold text-[#F39D62]'>Resources</p>
