@@ -1,7 +1,10 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 
 function VideoCall() {
+    const navigate=useNavigate();
 const supportDetails=[
     {
         id:1,
@@ -58,7 +61,11 @@ const freeAvail=[
 ]
 
 const handleSubmit=()=>{
-
+    toast.success(`Your call has been scheduled`);
+    setTimeout(() => {
+        navigate('/');
+      }, 1000);
+  console.log(data);
 }
   return (
     <div>
@@ -113,7 +120,7 @@ const handleSubmit=()=>{
 
     </div>
   </div>
-
+<Toaster/>
     </div>
   )
 }
