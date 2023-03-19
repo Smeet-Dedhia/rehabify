@@ -85,12 +85,12 @@ const handleSubmit=()=>{
         <p>{item.phone}</p>
         </div>
         </div>)}
-        </div>
-
-        </div>
+        
 
     </div>
-
+		</div>
+				<p className='text-lg font-semibold text-black' >Book a video consultation today</p>
+      </div>
 
     {/* book a call  */}
   <div className='flex flex-col justify-center items-center pb-10'>
