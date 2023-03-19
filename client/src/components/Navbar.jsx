@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {RiDashboardLine,RiChat1Line} from 'react-icons/ri';
+import {MdOutlineCallToAction} from 'react-icons/md';
 import Avatar from 'react-avatar';
 import { useState,useEffect } from "react";
 
@@ -28,7 +29,7 @@ useEffect( ()=>{
         </Link>
 
         {/* nav-links  */}
-        <div className='flex justify-around  w-80 font-semibold'>
+        <div className='flex justify-around w-96 font-semibold'>
             <Link to='/dashboard' className='flex items-center hover:underline decoration-orange-400 text-center decoration-2 active:underline underline-offset-8 rounded-full cursor-pointer hover:font-bold capitalize hover:scale-110 transition-transform duration-200 ease-out'>
                 <RiDashboardLine className='text-lg' />
                 <p className='ml-2'>Dashboard</p>
@@ -38,6 +39,11 @@ useEffect( ()=>{
             <Link to='/forum' className='flex items-center hover:underline decoration-orange-400 text-center decoration-2 active:underline underline-offset-8 rounded-full cursor-pointer hover:font-bold capitalize hover:scale-110 transition-transform duration-200 ease-out'>
                 <RiChat1Line className='text-lg'/>
                 <p className='ml-2'>Forum</p>
+            </Link>
+
+            <Link to='/support' className='flex items-center hover:underline decoration-orange-400 text-center decoration-2 active:underline underline-offset-8 rounded-full cursor-pointer hover:font-bold capitalize hover:scale-110 transition-transform duration-200 ease-out'>
+                <MdOutlineCallToAction className='text-lg'/>
+                <p className='ml-2'>Support</p>
             </Link>
         </div>
 

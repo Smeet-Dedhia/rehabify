@@ -1,24 +1,34 @@
 import Navbar from "../components/Navbar"
 import { useState } from "react";
 import {IoSend} from 'react-icons/io5';
+import { SyncRedactor } from 'redact-pii';
 
 function Forum() {
   const [text, setText] = useState('');
+  const redactor = new SyncRedactor();
+  const [redactedText,setRedactedState]=useState();
+  const [conv,setConv]=useState([]);
 
   const handleSubmit=async(e)=>{
-    const res=await fetch(`{http://127.0.0.1:8000/redact/${text}}`
-    ,{
-      method:'gets',
-      mode:'cors',
-      headers:{
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify(text),
-    }
-    )
-
-    console.log(res);
+    // const res=await fetch(`{http://127.0.0.1:8000/redact/${text}}`
+    // ,{
+    //   method:'gets',
+    //   mode:'cors',
+    //   headers:{
+    //     'Content-Type':'application/json',
+    //   },
+    //   body:JSON.stringify(text),
+    // }
+    setRedactedState(redactor.redact(text));
+    // setRedactedState(changed);
+    // setConv.push(changed);
+    
+    
   }
+
+    console.log(redactedText);
+  
+
   return (
     <div>
     <Navbar/>
@@ -35,6 +45,15 @@ function Forum() {
      </button>
    </div>
   </div>
+
+
+
+
+ {redactedText?<div className='p-14 m-12'>
+ <div className='flex justify-center items-center bg-[#F39D62] text-md rounded-lg text-white p-4 h-40 w-96'>
+   {redactedText}
+  </div>
+ </div>: ""}
     
     </div>
   )
