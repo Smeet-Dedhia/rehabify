@@ -6,7 +6,7 @@ function Dashboard() {
     <div>
       <Navbar/>
       <div className="image flex justify-center">
-			<img src={Img} />
+// 			<img src={Img} />
 			</div>
   
     </div>
